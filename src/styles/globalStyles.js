@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
-import { normalize } from "./lib"
+import { normalize, typography } from "./lib"
 
 const GlobalStyles = createGlobalStyle`
     ${normalize}
+    ${typography}
 `
 
 export default GlobalStyles
