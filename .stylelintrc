@@ -1,0 +1,25 @@
+{
+  "processors": [
+    "stylelint-processor-styled-components"
+  ],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ],
+  "rules": {
+      "color-named" : "never",
+      "declaration-no-important": true,
+      "selector-max-empty-lines": 0,
+      "selector-max-id": 0,
+      "color-hex-case": "upper",
+      "number-leading-zero": "always",
+      "number-no-trailing-zeros": true,
+      "string-quotes": "double",
+      "length-zero-no-unit": true,
+      "unit-case": "lower",
+      "indentation": 4,
+      "max-empty-lines": 1,
+      "no-eol-whitespace": true,
+      "no-empty-first-line" : true,
+  }
+}
