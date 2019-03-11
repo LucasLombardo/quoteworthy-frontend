@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
     <>
         <GlobalStyles />
         <header><Nav /></header>
-        <main>{children}</main>
+        <main style={{ paddingTop: `60px` }}>{children}</main>
     </>
 )
 
