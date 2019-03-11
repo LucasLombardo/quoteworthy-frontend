@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
-import AuthForm from "../components/authForm"
+import SignInUp from "../components/signInUp"
 
 const SignInPage = () => (
     <Layout>
-        <AuthForm type="sign in" title="Sign In" />
+        <SignInUp type="sign in" title="Sign In" />
     </Layout>
 )
 

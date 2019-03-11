@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { signUp, signIn } from "./api/client"
 import Form from "../styles/form"
 
-const AuthForm = ({ type, title }) => {
+const SignInUp = ({ type, title }) => {
     const [username, setUsername] = useState(``)
     const [password, setPassword] = useState(``)
 
@@ -49,9 +49,9 @@ const AuthForm = ({ type, title }) => {
     )
 }
 
-AuthForm.propTypes = {
+SignInUp.propTypes = {
     type: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
 }
 
-export default AuthForm
+export default SignInUp
