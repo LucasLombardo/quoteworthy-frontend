@@ -32,4 +32,13 @@ const signIn = (username, password) => {
     return axios.post(`${url}/sign-in`, credentials)
 }
 
-export { signUp, signIn }
+const signOut = token => axios({
+    url: `${url}/sign-out`,
+    method: `delete`,
+    headers: {
+        Authorization: `Token token=${token}`
+    }
+})
+
+
+export { signUp, signIn, signOut }

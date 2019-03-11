@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { colors } from "../styles/lib"
+import { signOut } from "./api/client"
 import UserContext from '../context/UserContext'
 
 const NavBar = styled.nav`
@@ -27,7 +28,16 @@ const NavBar = styled.nav`
 `
 
 const Nav = () => {
-    const { user } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
+
+    const onSignOut = () => {
+        console.log(user.token)
+        signOut(user.token)
+            .then(() => {
+                console.log(`success`)
+                setUser({ id: ``, email: ``, token: `` })
+            })
+    }
 
     return (
         <NavBar>
@@ -37,7 +47,7 @@ const Nav = () => {
             <>
                 <Link to="/">Create Quote</Link>
                 <Link to="/">Change PW</Link>
-                <Link to="/">Sign Out</Link>
+                <button type="button" onClick={onSignOut}>Sign Out</button>
             </>
             )}
 
