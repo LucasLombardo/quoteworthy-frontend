@@ -6,7 +6,7 @@ const production = `https://quoteworthy-backend.herokuapp.com`
 const development = `http://localhost:4741`
 
 let url
-if (window) {
+if (typeof window !== `undefined`) {
     url = (window.location.hostname === `localhost`) ? development : production
 }
 
