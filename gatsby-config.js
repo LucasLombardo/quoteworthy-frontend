@@ -30,5 +30,6 @@ module.exports = {
         `gatsby-plugin-offline`,
         `gatsby-plugin-eslint`,
         `gatsby-plugin-styled-components`,
+        `gatsby-plugin-netlify`, // make sure to put last in the array
     ],
 }
