@@ -1,8 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { colors } from "../styles/lib"
+import UserContext from '../context/UserContext'
 
 const NavBar = styled.nav`
     position: fixed;
@@ -26,32 +26,29 @@ const NavBar = styled.nav`
     }
 `
 
-const Nav = ({ user }) => (
-    <NavBar>
-        <Link to="/">Quoteworthy</Link>
+const Nav = () => {
+    const { user } = useContext(UserContext)
 
-        {user.username && (
+    return (
+        <NavBar>
+            <Link to="/">Quoteworthy</Link>
+
+            {user.email && (
             <>
                 <Link to="/">Create Quote</Link>
                 <Link to="/">Change PW</Link>
                 <Link to="/">Sign Out</Link>
             </>
-        )}
+            )}
 
-        {!user.username && (
+            {!user.email && (
             <>
                 <Link to="/sign-in">Sign In</Link>
                 <Link to="/sign-up">Sign Up</Link>
             </>
-        )}
-    </NavBar>
-)
-
-Nav.propTypes = {
-    user: PropTypes.shape({ username: PropTypes.string.isRequired })
-}
-Nav.defaultProps = {
-    user: { username: `` }
+            )}
+        </NavBar>
+    )
 }
 
 export default Nav
