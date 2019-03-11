@@ -14,7 +14,10 @@ export const typography = css`
         input, select, textarea, button {
             font-family: inherit;
         }
-
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
         /* Font Sizing */
         font-size: 18px;
         ${below.xl`
