@@ -1,10 +1,14 @@
 import axios from "axios"
-
+/* eslint no-undef: 0 */
 // set base urls
 const production = `https://quoteworthy-backend.herokuapp.com`
+
 const development = `http://localhost:4741`
-// eslint-disable-next-line
-const url = (window.location.hostname === `localhost`) ? development : production
+
+let url
+if (window) {
+    url = (window.location.hostname === `localhost`) ? development : production
+}
 
 // auth
 const signUp = (username, password) => {
