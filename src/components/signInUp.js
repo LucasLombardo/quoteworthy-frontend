@@ -1,11 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import PropTypes from "prop-types"
 import { signUp, signIn } from "./api/client"
 import Form from "../styles/form"
+import UserContext from '../context/UserContext'
 
 const SignInUp = ({ type, title }) => {
     const [username, setUsername] = useState(``)
     const [password, setPassword] = useState(``)
+
+    const { setUser } = useContext(UserContext)
 
     const onSignUp = (e) => {
         e.preventDefault()
@@ -17,11 +20,10 @@ const SignInUp = ({ type, title }) => {
         e.preventDefault()
         signIn(username, password)
             .then((res) => {
-                // eslint-disable-next-line
-                window.localStorage.setItem(`userToken`, res.data.user.token)
-                // access with window.localStorage.getItem('userToken');
+                setUser(res.data.user)
             })
     }
+
 
     return (
         <Form onSubmit={type === `sign in` ? onSignIn : onSignUp}>
