@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Lucas Lombardo <lucasalombardo@gmail.com>",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.1.27",
     "gatsby-cli": "^2.4.14",

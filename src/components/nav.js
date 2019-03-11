@@ -41,7 +41,7 @@ const Nav = ({ user }) => (
         {!user.username && (
             <>
                 <Link to="/sign-in">Sign In</Link>
-                <Link to="/">Sign Up</Link>
+                <Link to="/sign-up">Sign Up</Link>
             </>
         )}
     </NavBar>
