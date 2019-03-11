@@ -40,5 +40,21 @@ const signOut = token => axios({
     }
 })
 
+const changePassword = (pass, newPass, token) => axios({
+    url: `${url}/change-password`,
+    method: `patch`,
+    data: {
+        passwords: {
+            old: pass,
+            new: newPass
+        }
+    },
+    headers: {
+        Authorization: `Token token=${token}`
+    }
+})
 
-export { signUp, signIn, signOut }
+
+export {
+    signUp, signIn, signOut, changePassword
+}
