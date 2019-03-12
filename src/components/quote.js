@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { colors } from "../styles/lib"
 // import UserContext from '../context/UserContext'
 
@@ -24,7 +25,7 @@ const QuoteBox = styled.div`
 `
 
 // eslint-disable-next-line
-const Quote = ({ text, attribution }) => {
+const Quote = ({ text, attribution, quoteId }) => {
     const hasPermission = true
     return (
         <QuoteBox>
@@ -34,7 +35,14 @@ const Quote = ({ text, attribution }) => {
                     {hasPermission && <button type="button">delete</button>}
                 </div>
                 <div>
-                    {hasPermission && <button type="button">edit</button>}
+                    {hasPermission && (
+                        <Link
+                            to="/edit-quote"
+                            state={{ quoteId, text, attribution }}
+                        >
+                            edit
+                        </Link>
+                    )}
                 </div>
                 <div>{attribution}</div>
             </>

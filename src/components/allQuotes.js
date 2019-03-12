@@ -22,7 +22,12 @@ const AllQuotes = () => {
         <QuotesWrapper>
             <h1>All Quotes</h1>
             {quotes.map(quote => (
-                <Quote key={quote.id} text={quote.body} attribution={quote.attribution} />
+                <Quote
+                    key={quote.id}
+                    quoteId={quote.id}
+                    text={quote.body}
+                    attribution={quote.attribution}
+                />
             ))}
         </QuotesWrapper>
     )

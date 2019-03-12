@@ -71,14 +71,14 @@ const createQuote = (text, attribution, token) => axios({
 
 const readQuotes = () => axios.get(`${url}/quotes`)
 
-const readQuote = () => axios.get(`${url}/quotes/${id}`)
+const readQuote = id => axios.get(`${url}/quotes/${id}`)
 
 const updateQuote = (id, text, attribution, token) => axios({
     url: `${url}/quotes/${id}`,
     method: `patch`,
     data: {
         quote: {
-            text,
+            body: text,
             attribution,
         }
     },
