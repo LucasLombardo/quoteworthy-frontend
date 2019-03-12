@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { colors } from "./lib"
 
 const Form = styled.form`
     display: flex;
@@ -11,6 +12,7 @@ const Form = styled.form`
         margin-top: 2em;
         padding: 2em;
 
+        background-color: ${colors.white};
         box-shadow: 0 6px 22px -4px rgba(0,0,0,0.11);
     }
     input {

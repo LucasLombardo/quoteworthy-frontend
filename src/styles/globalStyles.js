@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
-import { normalize, typography } from "./lib"
+import { normalize, typography, colors } from "./lib"
 
 const GlobalStyles = createGlobalStyle`
     ${normalize}
     ${typography}
     * {
         box-sizing: border-box;
+    }
+    body {
+        background-color: ${colors.snow};
     }
 `
 
