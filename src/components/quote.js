@@ -1,0 +1,45 @@
+import React from "react"
+import styled from "styled-components"
+import { colors } from "../styles/lib"
+// import UserContext from '../context/UserContext'
+
+const QuoteBox = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2em auto 0 auto;
+    max-width: 600px;
+
+    background: ${colors.white};
+    box-shadow: 0 6px 22px -4px rgba(0,0,0,0.11);
+
+    div {
+        padding: 1em;
+        text-align: center;
+
+        &:first-of-type {
+            grid-column: 1/4;
+            padding: 2em;
+        }
+    }
+`
+
+// eslint-disable-next-line
+const Quote = ({ text, attribution }) => {
+    const hasPermission = true
+    return (
+        <QuoteBox>
+            <>
+                <div>{text}</div>
+                <div>
+                    {hasPermission && <button type="button">delete</button>}
+                </div>
+                <div>
+                    {hasPermission && <button type="button">edit</button>}
+                </div>
+                <div>{attribution}</div>
+            </>
+        </QuoteBox>
+    )
+}
+
+export default Quote
