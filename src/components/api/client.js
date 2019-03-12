@@ -10,7 +10,7 @@ if (typeof window !== `undefined`) {
     url = (window.location.hostname === `localhost`) ? development : production
 }
 
-// auth
+// Authentication
 const signUp = (username, password) => {
     const credentials = {
         credentials: {
@@ -54,7 +54,48 @@ const changePassword = (pass, newPass, token) => axios({
     }
 })
 
+// Quotes CRUD
+const createQuote = (text, attribution, token) => axios({
+    url: `${url}/quotes`,
+    method: `post`,
+    data: {
+        quote: {
+            text,
+            attribution,
+        }
+    },
+    headers: {
+        Authorization: `Token token=${token}`
+    }
+})
+
+const readQuotes = () => axios.get(`${url}/quotes`)
+
+const readQuote = () => axios.get(`${url}/quotes/${id}`)
+
+const updateQuote = (id, text, attribution, token) => axios({
+    url: `${url}/quotes/${id}`,
+    method: `patch`,
+    data: {
+        quote: {
+            text,
+            attribution,
+        }
+    },
+    headers: {
+        Authorization: `Token token=${token}`
+    }
+})
+
+const destroyQuote = (id, token) => axios({
+    url: `${url}/quotes/${id}`,
+    method: `delete`,
+    headers: {
+        Authorization: `Token token=${token}`
+    }
+})
 
 export {
-    signUp, signIn, signOut, changePassword
+    signUp, signIn, signOut, changePassword, createQuote,
+    readQuote, readQuotes, updateQuote, destroyQuote
 }
