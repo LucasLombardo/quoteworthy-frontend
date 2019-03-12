@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import styled from "styled-components"
 import { colors } from "../styles/lib"
 import { signOut } from "./api/client"
@@ -38,6 +38,7 @@ const Nav = () => {
             .then(() => {
                 console.log(`success`)
                 setUser({ id: ``, email: ``, token: `` })
+                navigate(`/`)
             })
     }
 

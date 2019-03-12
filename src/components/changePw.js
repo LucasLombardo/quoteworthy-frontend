@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"
+import { navigate } from "gatsby"
 import { changePassword } from "./api/client"
 import Form from "../styles/form"
 import UserContext from '../context/UserContext'
@@ -13,8 +14,8 @@ const SignInUp = () => {
         e.preventDefault()
         console.log(`pass ${password} new ${newPassword} token ${user.token}`)
         changePassword(password, newPassword, user.token)
-            .then((res) => {
-                console.log(res)
+            .then(() => {
+                navigate(`/`)
             })
     }
 

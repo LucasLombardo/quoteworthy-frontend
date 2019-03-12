@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"
+import { navigate } from "gatsby"
 import { createQuote } from "./api/client"
 import Form from "../styles/form"
 import UserContext from '../context/UserContext'
@@ -12,7 +13,7 @@ const SignInUp = () => {
     const onNewQuote = (e) => {
         e.preventDefault()
         createQuote(body, attribution, user.token)
-            .then(console.log(`worked`))
+            .then(navigate(`/`))
     }
 
     return (

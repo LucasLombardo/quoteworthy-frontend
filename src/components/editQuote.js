@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"
+import { navigate } from "gatsby"
 import { updateQuote } from "./api/client"
 import Form from "../styles/form"
 import UserContext from '../context/UserContext'
@@ -13,7 +14,7 @@ const EditQuote = ({ quote }) => {
     const onEditQuote = (e) => {
         e.preventDefault()
         updateQuote(quote.quoteId, body, attribution, user.token)
-            .then(console.log(`worked`))
+            .then(navigate(`/`))
     }
 
     return (

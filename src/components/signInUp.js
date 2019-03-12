@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react"
 import PropTypes from "prop-types"
+import { navigate } from "gatsby"
 import { signUp, signIn } from "./api/client"
 import Form from "../styles/form"
 import UserContext from '../context/UserContext'
@@ -13,7 +14,7 @@ const SignInUp = ({ type, title }) => {
     const onSignUp = (e) => {
         e.preventDefault()
         signUp(username, password)
-            .then(res => console.log(res))
+            .then(() => navigate(`/sign-in`))
     }
 
     const onSignIn = (e) => {
@@ -21,6 +22,7 @@ const SignInUp = ({ type, title }) => {
         signIn(username, password)
             .then((res) => {
                 setUser(res.data.user)
+                navigate(`/`)
             })
     }
 
