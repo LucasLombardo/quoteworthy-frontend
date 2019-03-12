@@ -28,7 +28,9 @@ const NavBar = styled.nav`
 `
 
 const Nav = () => {
-    const { user, setUser } = useContext(UserContext)
+    // eslint-disable-next-line
+    const { setUser } = useContext(UserContext)
+    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
 
     const onSignOut = () => {
         console.log(user.token)
