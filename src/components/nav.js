@@ -45,7 +45,7 @@ const Nav = () => {
 
             {user.email && (
             <>
-                <Link to="/">Create Quote</Link>
+                <Link to="/new-quote">Create Quote</Link>
                 <Link to="/change-pw">Change PW</Link>
                 <button type="button" onClick={onSignOut}>Sign Out</button>
             </>

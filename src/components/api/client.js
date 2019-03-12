@@ -60,7 +60,7 @@ const createQuote = (text, attribution, token) => axios({
     method: `post`,
     data: {
         quote: {
-            text,
+            body: text,
             attribution,
         }
     },
