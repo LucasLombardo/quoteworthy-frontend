@@ -4,19 +4,20 @@ import Form from "../styles/form"
 // import UserContext from '../context/UserContext'
 
 // eslint-disable-next-line
-const SignInUp = ({ quoteId, currBody, currAttribution }) => {
-    const [body, setBody] = useState(currBody)
-    const [attribution, setAttribution] = useState(currAttribution)
+const EditQuote = ({ quote }) => {
+    const [body, setBody] = useState(quote.text)
+    const [attribution, setAttribution] = useState(quote.attribution)
 
     const onEditQuote = (e) => {
         e.preventDefault()
-        updateQuote(quoteId, body, attribution, ``)
+        updateQuote(quote.quoteId, body, attribution, ``)
             .then(console.log(`worked`))
     }
 
     return (
         <Form onSubmit={onEditQuote}>
             <div>
+                {console.log(`edit`)}
                 <h1>Edit Quote</h1>
                 <input
                     value={body}
@@ -40,4 +41,4 @@ const SignInUp = ({ quoteId, currBody, currAttribution }) => {
     )
 }
 
-export default SignInUp
+export default EditQuote

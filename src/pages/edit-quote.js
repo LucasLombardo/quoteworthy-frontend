@@ -4,16 +4,13 @@ import EditQuote from "../components/editQuote"
 
 // eslint-disable-next-line
 const EditQuotePage = ({ location }) => {
-    console.log(`location`)
-    console.log(location)
-    if (typeof location.quoteId !== `undefined`) {
-        const { quoteId, text, attribution } = location.state
-        return (
-            <Layout>
-                <EditQuote quoteId={quoteId} currBody={text} currAttribution={attribution} />
-            </Layout>
-        )
-    } return <div />
+    // eslint-disable-next-line
+
+    return (
+        <Layout>
+            <EditQuote quote={{ ...location.state }} />
+        </Layout>
+    )
 }
 
 export default EditQuotePage
