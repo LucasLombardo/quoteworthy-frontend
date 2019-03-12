@@ -1,9 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
+import AllQuotes from "../components/allQuotes"
 
 const IndexPage = () => (
     <Layout>
-        <h1>Quoteworthy</h1>
+        <AllQuotes />
     </Layout>
 )
 
