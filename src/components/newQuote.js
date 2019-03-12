@@ -1,15 +1,17 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { createQuote } from "./api/client"
 import Form from "../styles/form"
-// import UserContext from '../context/UserContext'
+import UserContext from '../context/UserContext'
 
 const SignInUp = () => {
     const [body, setBody] = useState(``)
     const [attribution, setAttribution] = useState(``)
 
+    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
+
     const onNewQuote = (e) => {
         e.preventDefault()
-        createQuote(body, attribution, ``)
+        createQuote(body, attribution, user.token)
             .then(console.log(`worked`))
     }
 

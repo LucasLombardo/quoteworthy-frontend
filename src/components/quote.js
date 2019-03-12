@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { colors } from "../styles/lib"
 import { destroyQuote } from "./api/client"
-// import UserContext from '../context/UserContext'
+import UserContext from '../context/UserContext'
 
 const QuoteBox = styled.div`
     display: grid;
@@ -29,8 +29,10 @@ const QuoteBox = styled.div`
 const Quote = ({ text, attribution, quoteId, unmountQuote }) => {
     const hasPermission = true
 
+    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
+
     const onDelete = () => {
-        destroyQuote(quoteId)
+        destroyQuote(quoteId, user.token)
         unmountQuote(quoteId)
     }
 
