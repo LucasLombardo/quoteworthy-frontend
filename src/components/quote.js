@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { colors } from "../styles/lib"
+import { destroyQuote } from "./api/client"
 // import UserContext from '../context/UserContext'
 
 const QuoteBox = styled.div`
@@ -25,14 +26,20 @@ const QuoteBox = styled.div`
 `
 
 // eslint-disable-next-line
-const Quote = ({ text, attribution, quoteId }) => {
+const Quote = ({ text, attribution, quoteId, unmountQuote }) => {
     const hasPermission = true
+
+    const onDelete = () => {
+        destroyQuote(quoteId)
+        unmountQuote(quoteId)
+    }
+
     return (
         <QuoteBox>
             <>
                 <div>{text}</div>
                 <div>
-                    {hasPermission && <button type="button">delete</button>}
+                    {hasPermission && <button type="button" onClick={onDelete}>delete</button>}
                 </div>
                 <div>
                     {hasPermission && (

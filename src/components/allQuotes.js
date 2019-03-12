@@ -18,6 +18,10 @@ const AllQuotes = () => {
             })
     }, [])
 
+    const unmountQuote = (quoteId) => {
+        setQuotes(quotes.filter(quote => quote.id !== quoteId))
+    }
+
     return (
         <QuotesWrapper>
             <h1>All Quotes</h1>
@@ -27,6 +31,7 @@ const AllQuotes = () => {
                     quoteId={quote.id}
                     text={quote.body}
                     attribution={quote.attribution}
+                    unmountQuote={unmountQuote}
                 />
             ))}
         </QuotesWrapper>
