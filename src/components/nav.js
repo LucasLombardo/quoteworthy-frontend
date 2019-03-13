@@ -8,6 +8,7 @@ import UserContext from '../context/UserContext'
 const NavBar = styled.nav`
     position: fixed;
     top: 0;
+    z-index: 10;
 
     display: flex;
     width: 100%;
