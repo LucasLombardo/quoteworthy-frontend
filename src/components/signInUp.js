@@ -45,6 +45,7 @@ const SignInUp = ({ type, title }) => {
         <Form onSubmit={type === `sign in` ? onSignIn : onSignUp}>
             <div>
                 <h1>{title}</h1>
+                {type === `sign up` && <p>Note: your username will be public. Don&#39;t use your email or name unless you are okay with this.</p>}
                 <input
                     value={username}
                     onChange={e => setUsername(e.target.value)}
@@ -57,7 +58,7 @@ const SignInUp = ({ type, title }) => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     placeholder="password"
-                    type="text"
+                    type="password"
                     name="password"
                     required
                 />
