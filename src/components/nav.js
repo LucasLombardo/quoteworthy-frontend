@@ -13,43 +13,59 @@ const NavBar = styled.nav`
     display: flex;
     width: 100%;
     height: 55px;
+    padding: 0 5%;
 
     box-shadow: 0 6px 22px -4px rgba(0,0,0,0.11);
     background-color: ${colors.white};
     font-family: "Alegreya", serif;
-    font-size: 1.3em;
+    line-height: 55px;
 
-    a {
+    a, button {
         margin: 0 1em;
-        line-height: 55px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
 
-        &:first-of-type {
-            margin-right: auto;
+        &:last-of-type {
+            margin-right: 0;
         }
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+    }
+
+    .brand {
+        margin: 0 auto 0 0;
+        font-size: 1.3em;
+        font-weight: bold;
     }
 `
 
 const Nav = () => {
-    // eslint-disable-next-line
     const { setUser, invokeMessage } = useContext(UserContext)
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
 
-    const onSignOut = () => {
+    const signOutSuccess = () => {
+        setUser({ id: ``, email: ``, token: `` })
+        navigate(`/`)
+        invokeMessage(`successfully signed out`)
+    }
+
+    const onSignOut = (e) => {
+        // sign a user out and navigate to home if they click the button
+        // even if api call fails, clear user and display success message
+        e.target.blur()
         signOut(user.token)
-            .then(() => {
-                setUser({ id: ``, email: ``, token: `` })
-                navigate(`/`)
-                invokeMessage(`successfully signed out`)
-            })
-            .catch(() => {
-                setUser({ id: ``, email: ``, token: `` })
-                invokeMessage(`successfully signed out`)
-            })
+            .then(signOutSuccess)
+            .catch(signOutSuccess)
     }
 
     return (
         <NavBar>
-            <Link to="/">Quoteworthy</Link>
+            <Link to="/" className="brand">Quoteworthy</Link>
 
             {user.email && (
             <>
