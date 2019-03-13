@@ -1,16 +1,18 @@
 import axios from "axios"
-/* eslint no-undef: 0 */
-// set base urls
+
+// BASE URLS
 const production = `https://quoteworthy-backend.herokuapp.com`
 
 const development = `http://localhost:4741`
 
+// check for window first to avoid buildtime errors when run in node
 let url
 if (typeof window !== `undefined`) {
+    // eslint-disable-next-line no-undef
     url = (window.location.hostname === `localhost`) ? development : production
 }
 
-// Authentication
+// AUTHENTICATION
 const signUp = (username, password) => {
     const credentials = {
         credentials: {
@@ -54,7 +56,7 @@ const changePassword = (pass, newPass, token) => axios({
     }
 })
 
-// Quotes CRUD
+// QUOTES CRUD
 const createQuote = (text, attribution, token) => axios({
     url: `${url}/quotes`,
     method: `post`,

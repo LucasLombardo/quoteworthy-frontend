@@ -4,7 +4,7 @@ import { changePassword } from "./api/client"
 import Form from "../styles/form"
 import UserContext from '../context/UserContext'
 
-const SignInUp = () => {
+const ChangePw = () => {
     const [password, setPassword] = useState(``)
     const [newPassword, setNewPassword] = useState(``)
 
@@ -51,4 +51,4 @@ const SignInUp = () => {
     )
 }
 
-export default SignInUp
+export default ChangePw
