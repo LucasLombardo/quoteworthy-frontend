@@ -28,7 +28,7 @@ const SignInUp = () => {
         <Form onSubmit={onNewQuote}>
             <div>
                 <h1>Create Quote</h1>
-                <input
+                <textarea
                     value={body}
                     onChange={e => setBody(e.target.value)}
                     placeholder="quote body"

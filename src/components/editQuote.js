@@ -29,7 +29,7 @@ const EditQuote = ({ quote }) => {
         <Form onSubmit={onEditQuote}>
             <div>
                 <h1>Edit Quote</h1>
-                <input
+                <textarea
                     value={body}
                     onChange={e => setBody(e.target.value)}
                     placeholder="quote body"
