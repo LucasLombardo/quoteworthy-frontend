@@ -14,7 +14,9 @@ const EditQuote = ({ quote }) => {
     const onEditQuote = (e) => {
         e.preventDefault()
         updateQuote(quote.quoteId, body, attribution, user.token)
-            .then(navigate(`/`))
+            .then(setTimeout(() => {
+                navigate(`/`)
+            }, 200))
     }
 
     return (

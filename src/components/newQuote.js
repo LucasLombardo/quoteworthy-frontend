@@ -13,7 +13,9 @@ const SignInUp = () => {
     const onNewQuote = (e) => {
         e.preventDefault()
         createQuote(body, attribution, user.token)
-            .then(navigate(`/`))
+            .then(setTimeout(() => {
+                navigate(`/`)
+            }, 200))
     }
 
     return (
