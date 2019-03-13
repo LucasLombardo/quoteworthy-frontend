@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { navigate } from "gatsby"
 import UserContext from '../context/UserContext'
-import { createQuote } from "./api/client"
+import { createQuote } from "../components/api/client"
 import Layout from "../components/layout"
 import Form from "../styles/form"
 

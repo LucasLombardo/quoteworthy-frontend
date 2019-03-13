@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import { readQuotes } from "../components/api/client"
-import Quote from "./quote"
+import Quote from "../components/quote"
 
 const QuotesWrapper = styled.div`
     padding-top: 2em;
@@ -15,7 +15,7 @@ const IndexPage = () => {
     useEffect(() => {
         readQuotes()
             .then((res) => {
-                setQuotes(res.data.quotes)
+                setQuotes(res.data.quotes.reverse())
             })
     }, [])
 
