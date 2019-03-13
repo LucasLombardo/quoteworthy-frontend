@@ -9,12 +9,20 @@ const SignInUp = ({ type, title }) => {
     const [username, setUsername] = useState(``)
     const [password, setPassword] = useState(``)
 
-    const { setUser } = useContext(UserContext)
+    const { setUser, invokeMessage } = useContext(UserContext)
 
     const onSignUp = (e) => {
         e.preventDefault()
         signUp(username, password)
-            .then(() => navigate(`/sign-in`))
+            .then(() => {
+                navigate(`/sign-in`)
+                invokeMessage(`successfully signed up. please sign in to continue`)
+            })
+            .catch(() => {
+                setUsername(``)
+                setPassword(``)
+                invokeMessage(`error signing up, please try again`, `failure`)
+            })
     }
 
     const onSignIn = (e) => {
@@ -23,6 +31,12 @@ const SignInUp = ({ type, title }) => {
             .then((res) => {
                 setUser(res.data.user)
                 navigate(`/`)
+                invokeMessage(`successfully signed in`)
+            })
+            .catch(() => {
+                setUsername(``)
+                setPassword(``)
+                invokeMessage(`error signing in, please try again`, `failure`)
             })
     }
 

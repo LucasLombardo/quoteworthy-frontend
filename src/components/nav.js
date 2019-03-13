@@ -31,16 +31,19 @@ const NavBar = styled.nav`
 
 const Nav = () => {
     // eslint-disable-next-line
-    const { setUser } = useContext(UserContext)
+    const { setUser, invokeMessage } = useContext(UserContext)
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
 
     const onSignOut = () => {
-        console.log(user.token)
         signOut(user.token)
             .then(() => {
-                console.log(`success`)
                 setUser({ id: ``, email: ``, token: `` })
                 navigate(`/`)
+                invokeMessage(`successfully signed out`)
+            })
+            .catch(() => {
+                setUser({ id: ``, email: ``, token: `` })
+                invokeMessage(`successfully signed out`)
             })
     }
 

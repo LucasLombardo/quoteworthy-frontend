@@ -8,14 +8,19 @@ const SignInUp = () => {
     const [password, setPassword] = useState(``)
     const [newPassword, setNewPassword] = useState(``)
 
-    const { user } = useContext(UserContext)
+    const { user, invokeMessage } = useContext(UserContext)
 
     const onChangePw = (e) => {
         e.preventDefault()
-        console.log(`pass ${password} new ${newPassword} token ${user.token}`)
         changePassword(password, newPassword, user.token)
             .then(() => {
                 navigate(`/`)
+                invokeMessage(`password successfully changed`)
+            })
+            .catch(() => {
+                setPassword(``)
+                setNewPassword(``)
+                invokeMessage(`error changing password, please try again`, `failure`)
             })
     }
 
