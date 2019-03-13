@@ -6,15 +6,15 @@ import { colors } from "../styles/lib"
 const MessageBox = styled.div`
     position: fixed;
     z-index: 9;
-    top: 60px;
+    top: 55px;
     left: 15%;
 
     width: 70%;
     border-radius: 0 0 5px 5px;
 
     background: ${colors.red};
-    transition: 0.5s;
-    transform: translateY(-120%);
+    transition: 0.3s;
+    transform: translateY(-105%);
     opacity: 0;
 
     p {

@@ -12,7 +12,7 @@ const NavBar = styled.nav`
 
     display: flex;
     width: 100%;
-    padding: 1em;
+    height: 55px;
 
     box-shadow: 0 6px 22px -4px rgba(0,0,0,0.11);
     background-color: ${colors.white};
@@ -21,6 +21,7 @@ const NavBar = styled.nav`
 
     a {
         margin: 0 1em;
+        line-height: 55px;
 
         &:first-of-type {
             margin-right: auto;
