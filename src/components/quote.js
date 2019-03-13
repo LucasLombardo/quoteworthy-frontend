@@ -23,37 +23,49 @@ const QuoteBox = styled.div`
             padding: 2em;
         }
     }
+
+    .posted-by {
+        font-size: 0.8em;
+        opacity: 0.6;
+    }
 `
 
 // eslint-disable-next-line
-const Quote = ({ text, attribution, quoteId, unmountQuote }) => {
-    const hasPermission = true
+const Quote = ({ quoteData, unmountQuote }) => {
+
+    // eslint-disable-next-line
+    const { id, body, attribution, owner } = quoteData
 
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
 
+    // check if user has permission to edit/delete quote
+    const hasPermission = user.id === owner.owner_id
+
     const onDelete = () => {
-        destroyQuote(quoteId, user.token)
-        unmountQuote(quoteId)
+        destroyQuote(id, user.token)
+        unmountQuote(id)
     }
 
     return (
         <QuoteBox>
             <>
-                <div>{text}</div>
+                <div>&quot;{body}&quot;</div>
                 <div>
                     {hasPermission && <button type="button" onClick={onDelete}>delete</button>}
                 </div>
                 <div>
-                    {hasPermission && (
+                    {hasPermission ? (
                         <Link
                             to="/edit-quote"
-                            state={{ quoteId, text, attribution }}
+                            state={{ id, body, attribution }}
                         >
                             edit
                         </Link>
+                    ) : (
+                        <p className="posted-by">posted by {owner.owner_account}</p>
                     )}
                 </div>
-                <div>{attribution}</div>
+                <div><em>- {attribution}</em></div>
             </>
         </QuoteBox>
     )

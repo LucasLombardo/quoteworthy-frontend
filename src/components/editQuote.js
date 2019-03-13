@@ -6,7 +6,7 @@ import UserContext from '../context/UserContext'
 
 // eslint-disable-next-line
 const EditQuote = ({ quote }) => {
-    const [body, setBody] = useState(quote.text)
+    const [body, setBody] = useState(quote.body)
     const [attribution, setAttribution] = useState(quote.attribution)
 
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
@@ -20,7 +20,6 @@ const EditQuote = ({ quote }) => {
     return (
         <Form onSubmit={onEditQuote}>
             <div>
-                {console.log(`edit`)}
                 <h1>Edit Quote</h1>
                 <input
                     value={body}
