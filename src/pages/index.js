@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react"
+import styled from "styled-components"
 import Layout from "../components/layout"
-import AllQuotes from "../components/allQuotes"
 import { readQuotes } from "../components/api/client"
+import Quote from "./quote"
+
+const QuotesWrapper = styled.div`
+    padding-top: 2em;
+    text-align: center;
+`
 
 const IndexPage = () => {
     const [quotes, setQuotes] = useState([])
@@ -19,7 +25,12 @@ const IndexPage = () => {
 
     return (
         <Layout>
-            <AllQuotes unmountQuote={unmountQuote} quotes={quotes} />
+            <QuotesWrapper>
+                <h1>All Quotes</h1>
+                {quotes.map(quote => (
+                    <Quote key={quote.id} quoteData={quote} unmountQuote={unmountQuote} />
+                ))}
+            </QuotesWrapper>
         </Layout>
     )
 }
