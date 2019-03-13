@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import { readQuotes } from "./api/client"
+// import { readQuotes } from "./api/client"
 import Quote from "./quote"
 
 const QuotesWrapper = styled.div`
@@ -8,28 +8,15 @@ const QuotesWrapper = styled.div`
     text-align: center;
 `
 
-const AllQuotes = () => {
-    const [quotes, setQuotes] = useState([])
+// eslint-disable-next-line
+const AllQuotes = ({quotes, unmountQuote}) => (
+    <QuotesWrapper>
+        <h1>All Quotes</h1>
+        {quotes.map(quote => (
+            <Quote key={quote.id} quoteData={quote} unmountQuote={unmountQuote} />
+        ))}
+    </QuotesWrapper>
+)
 
-    useEffect(() => {
-        readQuotes()
-            .then((res) => {
-                setQuotes(res.data.quotes)
-            })
-    }, [])
-
-    const unmountQuote = (quoteId) => {
-        setQuotes(quotes.filter(quote => quote.id !== quoteId))
-    }
-
-    return (
-        <QuotesWrapper>
-            <h1>All Quotes</h1>
-            {quotes.map(quote => (
-                <Quote key={quote.id} quoteData={quote} unmountQuote={unmountQuote} />
-            ))}
-        </QuotesWrapper>
-    )
-}
 
 export default AllQuotes
