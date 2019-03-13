@@ -37,12 +37,19 @@ const Quote = ({ quoteData, unmountQuote }) => {
     const { id, body, attribution, owner } = quoteData
 
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
+    const { invokeMessage } = useContext(UserContext)
 
     // check if user has permission to edit/delete quote
     const hasPermission = user.id === owner.owner_id
 
     const onDelete = () => {
         destroyQuote(id, user.token)
+            .then(() => {
+                invokeMessage(`Quote successfully deleted.`)
+            })
+            .catch(() => {
+                invokeMessage(`Error deleting quote, please try again.`, `failure`)
+            })
         unmountQuote(id)
     }
 

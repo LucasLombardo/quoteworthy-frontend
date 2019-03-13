@@ -10,13 +10,19 @@ const EditQuote = ({ quote }) => {
     const [attribution, setAttribution] = useState(quote.attribution)
 
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
+    const { invokeMessage } = useContext(UserContext)
 
     const onEditQuote = (e) => {
         e.preventDefault()
         updateQuote(quote.id, body, attribution, user.token)
-            .then(setTimeout(() => {
+            .then(() => setTimeout(() => {
+                invokeMessage(`Quote successfully edited`)
                 navigate(`/`)
             }, 200))
+            .catch(() => {
+                invokeMessage(`Error editing quote, please try again.`, `failure`)
+                navigate(`/`)
+            })
     }
 
     return (

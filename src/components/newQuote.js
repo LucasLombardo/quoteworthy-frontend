@@ -9,13 +9,19 @@ const SignInUp = () => {
     const [attribution, setAttribution] = useState(``)
 
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
+    const { invokeMessage } = useContext(UserContext)
 
     const onNewQuote = (e) => {
         e.preventDefault()
         createQuote(body, attribution, user.token)
-            .then(setTimeout(() => {
+            .then(() => setTimeout(() => {
                 navigate(`/`)
+                invokeMessage(`Successfully created quote`)
             }, 200))
+            .catch(() => {
+                navigate(`/`)
+                invokeMessage(`Error creating quote, please try again.`, `failure`)
+            })
     }
 
     return (
