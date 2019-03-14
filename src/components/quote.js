@@ -8,6 +8,7 @@ import AppContext from '../context/AppContext'
 const QuoteBox = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
     margin: 2em auto 0 auto;
     max-width: 600px;
 
@@ -44,6 +45,30 @@ const QuoteBox = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    &:before {
+        content: "|";
+        position: absolute;
+        /* margin: -0.2em 0 0 -0.2em; */
+        margin-top: -0.47em;
+        font-size: 3em;
+        transform: rotate(45deg);
+        color: ${colors.black};
+        opacity: 0.2;
+    }
+
+    &:after {
+        content: "|";
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        right: 0;
+        font-size: 3em;
+        transform: rotate(45deg);
+        margin: 0 -0.2em -0.3em 0;
+        color: ${colors.black};
+        opacity: 0.2;
     }
 `
 
