@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { colors } from "../styles/lib"
+import { colors, boxShadow, hoverQuotes } from "../styles/lib"
 import { destroyQuote } from "./api/client"
 import UserContext from '../context/UserContext'
 
@@ -12,7 +12,7 @@ const QuoteBox = styled.div`
     max-width: 600px;
 
     background: ${colors.white};
-    box-shadow: 0 6px 22px -4px rgba(0,0,0,0.11);
+    ${boxShadow};
 
     div {
         padding: 1em;
@@ -27,6 +27,23 @@ const QuoteBox = styled.div`
     .posted-by {
         font-size: 0.8em;
         opacity: 0.6;
+    }
+
+    button, a {
+        background: none;
+        padding: 0.4em;
+        border: 2px solid ${colors.lightGray};
+        display: block;
+        margin: 0 auto;
+        width: 90px;
+        cursor: pointer;
+        ${hoverQuotes}
+    }
+
+    .attribution {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 
@@ -72,7 +89,7 @@ const Quote = ({ quoteData, unmountQuote }) => {
                         <p className="posted-by">posted by {owner.owner_account}</p>
                     )}
                 </div>
-                <div><em>- {attribution}</em></div>
+                <div className="attribution"><em>- {attribution}</em></div>
             </>
         </QuoteBox>
     )

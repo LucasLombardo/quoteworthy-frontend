@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link, navigate } from "gatsby"
 import styled from "styled-components"
-import { colors } from "../styles/lib"
+import { colors, boxShadow, hoverQuotes } from "../styles/lib"
 import { signOut } from "./api/client"
 import UserContext from '../context/UserContext'
 
@@ -15,26 +15,22 @@ const NavBar = styled.nav`
     height: 55px;
     padding: 0 5%;
 
-    box-shadow: 0 6px 22px -4px rgba(0,0,0,0.11);
     background-color: ${colors.white};
     font-family: "Alegreya", serif;
     line-height: 55px;
+    ${boxShadow}
 
     a, button {
         margin: 0 1em;
         background: none;
         border: none;
         cursor: pointer;
-        transition: 0.3s;
 
         &:last-of-type {
             margin-right: 0;
         }
 
-        &:hover {
-            opacity: 0.7;
-        }
-
+        ${hoverQuotes}
     }
 
     .brand {
