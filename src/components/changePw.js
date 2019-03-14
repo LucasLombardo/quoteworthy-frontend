@@ -2,13 +2,13 @@ import React, { useState, useContext } from "react"
 import { navigate } from "gatsby"
 import { changePassword } from "./api/client"
 import Form from "../styles/form"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 
 const ChangePw = () => {
     const [password, setPassword] = useState(``)
     const [newPassword, setNewPassword] = useState(``)
 
-    const { user, invokeMessage } = useContext(UserContext)
+    const { user, invokeMessage } = useContext(AppContext)
 
     const onChangePw = (e) => {
         e.preventDefault()

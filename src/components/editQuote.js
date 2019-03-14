@@ -2,19 +2,19 @@ import React, { useState, useContext } from "react"
 import { navigate } from "gatsby"
 import { updateQuote } from "./api/client"
 import Form from "../styles/form"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 
 // eslint-disable-next-line
 const EditQuote = ({ quote }) => {
     const [body, setBody] = useState(quote.body)
     const [attribution, setAttribution] = useState(quote.attribution)
 
-    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
-    const { invokeMessage } = useContext(UserContext)
+    const user = useContext(AppContext).user || { id: ``, email: ``, token: `` }
+    const { invokeMessage } = useContext(AppContext)
 
     const onEditQuote = (e) => {
         e.preventDefault()
-        updateQuote(quote.id, body, attribution, user.token)
+        updateQuote(quote.rails_id, body, attribution, user.token)
             .then(() => setTimeout(() => {
                 invokeMessage(`Quote successfully edited`)
                 navigate(`/`)

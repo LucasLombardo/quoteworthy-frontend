@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { readQuotes } from "../components/api/client"
 import Quote from "../components/quote"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 
 const QuotesWrapper = styled.div`
     padding-top: 2em;
@@ -43,7 +43,7 @@ const IndexPage = () => {
     const [quotes, setQuotes] = useState(staticQuotes)
     const [loading, setLoading] = useState(false)
 
-    const { invokeMessage } = useContext(UserContext)
+    const { invokeMessage } = useContext(AppContext)
 
     // once page is mounted, run clientside query to update any changes since build query
     useEffect(() => {

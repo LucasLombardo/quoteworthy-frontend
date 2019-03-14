@@ -3,7 +3,7 @@ import { Link, navigate } from "gatsby"
 import styled from "styled-components"
 import { colors, boxShadow, hoverQuotes } from "../styles/lib"
 import { signOut } from "./api/client"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 
 const NavBar = styled.nav`
     position: fixed;
@@ -41,8 +41,8 @@ const NavBar = styled.nav`
 `
 
 const Nav = () => {
-    const { setUser, invokeMessage } = useContext(UserContext)
-    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
+    const { setUser, invokeMessage } = useContext(AppContext)
+    const user = useContext(AppContext).user || { id: ``, email: ``, token: `` }
 
     const signOutSuccess = () => {
         setUser({ id: ``, email: ``, token: `` })

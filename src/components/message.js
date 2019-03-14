@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import UserContext from "../context/UserContext"
+import AppContext from "../context/AppContext"
 import { colors } from "../styles/lib"
 
 const MessageBox = styled.div`
@@ -45,7 +45,7 @@ const MessageBox = styled.div`
 `
 
 const Message = () => {
-    const { message, setMessage, messageType } = useContext(UserContext)
+    const { message, setMessage, messageType } = useContext(AppContext)
 
     const closeMessage = () => {
         setMessage(``)

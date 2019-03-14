@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { colors, boxShadow, hoverQuotes } from "../styles/lib"
 import { destroyQuote } from "./api/client"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 
 const QuoteBox = styled.div`
     display: grid;
@@ -53,8 +53,8 @@ const Quote = ({ quoteData, unmountQuote }) => {
     // eslint-disable-next-line
     const { rails_id, body, attribution, owner } = quoteData
 
-    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
-    const { invokeMessage } = useContext(UserContext)
+    const user = useContext(AppContext).user || { id: ``, email: ``, token: `` }
+    const { invokeMessage } = useContext(AppContext)
 
     // check if user has permission to edit/delete quote
     const hasPermission = user.id === owner.owner_id

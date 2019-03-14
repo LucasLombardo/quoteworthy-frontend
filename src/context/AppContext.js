@@ -7,9 +7,9 @@ const defaultState = {
     token: ``,
 }
 
-const UserContext = React.createContext(defaultState)
+const AppContext = React.createContext(defaultState)
 
-const UserProvider = ({ children }) => {
+const AppProvider = ({ children }) => {
     const [user, setUser] = useState(defaultState)
     const [message, setMessage] = useState(``)
     const [messageType, setMessageType] = useState(``)
@@ -23,19 +23,19 @@ const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{
+        <AppContext.Provider value={{
             user, setUser, message, setMessage, invokeMessage, messageType
         }}
         >
             {children}
-        </UserContext.Provider>
+        </AppContext.Provider>
     )
 }
 
-UserProvider.propTypes = {
+AppProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export default UserContext
+export default AppContext
 
-export { UserProvider }
+export { AppProvider }

@@ -3,13 +3,13 @@ import PropTypes from "prop-types"
 import { navigate } from "gatsby"
 import { signUp, signIn } from "./api/client"
 import Form from "../styles/form"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 
 const SignInUp = ({ type, title }) => {
     const [username, setUsername] = useState(``)
     const [password, setPassword] = useState(``)
 
-    const { setUser, invokeMessage } = useContext(UserContext)
+    const { setUser, invokeMessage } = useContext(AppContext)
 
     const onSignUp = (e) => {
         e.preventDefault()

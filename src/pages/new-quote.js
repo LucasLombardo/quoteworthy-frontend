@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import { navigate } from "gatsby"
-import UserContext from '../context/UserContext'
+import AppContext from '../context/AppContext'
 import { createQuote } from "../components/api/client"
 import Layout from "../components/layout"
 import Form from "../styles/form"
@@ -9,8 +9,8 @@ const NewQuotePage = () => {
     const [body, setBody] = useState(``)
     const [attribution, setAttribution] = useState(``)
 
-    const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
-    const { invokeMessage } = useContext(UserContext)
+    const user = useContext(AppContext).user || { id: ``, email: ``, token: `` }
+    const { invokeMessage } = useContext(AppContext)
 
     const onNewQuote = (e) => {
         e.preventDefault()

@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { UserProvider } from "./src/context/UserContext"
+import { AppProvider } from "./src/context/AppContext"
 
 
 export const wrapRootElement = ({ element }) => (
-    <UserProvider>{element}</UserProvider>
+    <AppProvider>{element}</AppProvider>
 )
 
 wrapRootElement.propTypes = {
