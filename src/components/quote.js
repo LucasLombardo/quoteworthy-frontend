@@ -10,7 +10,8 @@ const QuoteBox = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     position: relative;
     margin: 2em auto 0 auto;
-    max-width: 600px;
+    width: 600px;
+    max-width: 90%;
 
     background: ${colors.white};
     ${boxShadow};

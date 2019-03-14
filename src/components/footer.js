@@ -3,17 +3,16 @@ import styled from "styled-components"
 import { colors, boxShadow, hoverQuotes } from "../styles/lib"
 
 const FooterBar = styled.footer`
-    /* position: absolute; */
     margin-top: 3em;
-    padding: 0.7em 0 0.8em 0;
     background: ${colors.white};
+    height: 32px;
     ${boxShadow};
     border-top: 2px solid ${colors.lightGray};
     p {
         margin: 0;
         text-align: center;
-        /* font-style: italic; */
-        font-size: 0.65em;
+        line-height: 30px;
+        font-size: 10px;
         color: ${colors.gray};
         letter-spacing: 0.05em;
     }

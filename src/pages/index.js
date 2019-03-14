@@ -8,7 +8,7 @@ import Quote from "../components/quote"
 import AppContext from '../context/AppContext'
 
 const QuotesWrapper = styled.div`
-    padding-top: 2em;
+    padding-top: 1em;
     text-align: center;
     .loader {
         position: fixed;
