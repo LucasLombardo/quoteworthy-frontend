@@ -4,6 +4,7 @@ import AppContext from '../context/AppContext'
 import { createQuote } from "../components/api/client"
 import Layout from "../components/layout"
 import Form from "../styles/form"
+import SEO from "../components/seo"
 
 const NewQuotePage = () => {
     const [body, setBody] = useState(``)
@@ -27,6 +28,7 @@ const NewQuotePage = () => {
 
     return (
         <Layout>
+            <SEO title="Create Quote" />
             <Form onSubmit={onNewQuote}>
                 <div>
                     <h1>Create Quote</h1>

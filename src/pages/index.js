@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import { readQuotes } from "../components/api/client"
 import Quote from "../components/quote"
 import AppContext from '../context/AppContext'
+import SEO from "../components/seo"
 
 const QuotesWrapper = styled.div`
     padding-top: 1em;
@@ -66,6 +67,7 @@ const IndexPage = () => {
 
     return (
         <Layout>
+            <SEO title="Home" />
             <QuotesWrapper>
                 {loading && (
                     <ReactLoading
