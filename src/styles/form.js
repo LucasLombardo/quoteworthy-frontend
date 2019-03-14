@@ -7,6 +7,7 @@ const Form = styled.form`
     align-items: center;
 
     text-align: center;
+    padding: 2em 0 5em 0;
 
     div {
         margin-top: 2em;
@@ -19,10 +20,11 @@ const Form = styled.form`
     }
 
     input, textarea {
+        padding: 0.5em;
         display: block;
         margin: 1em 0;
         width: 100%;
-        border: 1px solid ${colors.gray};
+        border: 2px solid ${colors.lightGray};
     }
 
     textarea {
@@ -35,7 +37,7 @@ const Form = styled.form`
         cursor: pointer;
 
         &:hover {
-            background-color: ${colors.gray};
+            border: 2px solid ${colors.gray};
         }
     }
 `
