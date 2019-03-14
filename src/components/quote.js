@@ -51,7 +51,7 @@ const QuoteBox = styled.div`
 const Quote = ({ quoteData, unmountQuote }) => {
 
     // eslint-disable-next-line
-    const { id, body, attribution, owner } = quoteData
+    const { rails_id, body, attribution, owner } = quoteData
 
     const user = useContext(UserContext).user || { id: ``, email: ``, token: `` }
     const { invokeMessage } = useContext(UserContext)
@@ -60,14 +60,14 @@ const Quote = ({ quoteData, unmountQuote }) => {
     const hasPermission = user.id === owner.owner_id
 
     const onDelete = () => {
-        destroyQuote(id, user.token)
+        destroyQuote(rails_id, user.token)
             .then(() => {
                 invokeMessage(`Quote successfully deleted.`)
             })
             .catch(() => {
                 invokeMessage(`Error deleting quote, please try again.`, `failure`)
             })
-        unmountQuote(id)
+        unmountQuote(rails_id)
     }
 
     return (
@@ -81,7 +81,7 @@ const Quote = ({ quoteData, unmountQuote }) => {
                     {hasPermission ? (
                         <Link
                             to="/edit-quote"
-                            state={{ id, body, attribution }}
+                            state={{ rails_id, body, attribution }}
                         >
                             edit
                         </Link>
