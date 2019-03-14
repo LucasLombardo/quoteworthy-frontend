@@ -13,6 +13,7 @@ const LayoutWrapper = styled.main`
         padding-top: 55px;
         padding-bottom: 3.5em;
         min-height: calc(100vh - 55px - 20px);
+        overflow: hidden;
     }
 `
 
