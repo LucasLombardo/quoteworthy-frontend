@@ -48,25 +48,27 @@ const QuoteBox = styled.div`
     }
 
     &:before {
-        content: "|";
         position: absolute;
-        /* margin: -0.2em 0 0 -0.2em; */
+
         margin-top: -0.47em;
-        font-size: 3em;
         transform: rotate(45deg);
+
+        content: "|";
+        font-size: 3em;
         color: ${colors.black};
         opacity: 0.2;
     }
 
     &:after {
-        content: "|";
         position: absolute;
-        z-index: 10;
         bottom: 0;
         right: 0;
-        font-size: 3em;
-        transform: rotate(45deg);
+
         margin: 0 -0.2em -0.3em 0;
+        transform: rotate(45deg);
+
+        content: "|";
+        font-size: 3em;
         color: ${colors.black};
         opacity: 0.2;
     }
