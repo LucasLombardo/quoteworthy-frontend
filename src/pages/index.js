@@ -56,7 +56,7 @@ const IndexPage = () => {
             })
             .catch(() => {
                 setLoading(false)
-                invokeMessage(`Error refreshing quotes, check your internet connection`)
+                invokeMessage(`Error refreshing quotes, check your internet connection`, `failure`)
             })
     }, [])
 
