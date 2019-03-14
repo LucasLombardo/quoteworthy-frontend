@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link, navigate } from "gatsby"
 import styled from "styled-components"
-import { colors, boxShadow, hoverQuotes } from "../styles/lib"
+import { colors, boxShadow, hoverQuotes, below } from "../styles/lib"
 import { signOut } from "./api/client"
 import AppContext from '../context/AppContext'
 
@@ -38,6 +38,18 @@ const NavBar = styled.nav`
         font-size: 1.3em;
         font-weight: bold;
     }
+
+    ${below.sm`
+        .change-pw {
+            display: none;
+        }
+        .brand {
+            font-size: 1.2em;
+        }
+        a, button {
+            margin: 0 0.2em;
+        }
+    `}
 `
 
 const Nav = () => {
@@ -66,7 +78,7 @@ const Nav = () => {
             {user.email && (
             <>
                 <Link to="/new-quote">Create Quote</Link>
-                <Link to="/change-pw">Change PW</Link>
+                <Link className="change-pw" to="/change-pw">Change Password</Link>
                 <button type="button" onClick={onSignOut}>Sign Out</button>
             </>
             )}

@@ -5,7 +5,7 @@ import { css } from 'styled-components'
 
 const size = {
     xs: 320,
-    sm: 480,
+    sm: 570,
     md: 768,
     lg: 960,
     xl: 1224
