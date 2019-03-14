@@ -10,6 +10,7 @@
         "react/jsx-indent-props": ["error", 4],
         "import/prefer-default-export": false,
         "import/no-unresolved": false,
+        "object-curly-newline": 0,
         "comma-dangle": [
             "error",
             {
