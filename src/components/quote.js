@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { colors, boxShadow, hoverQuotes } from "../styles/lib"
+import { colors, boxShadow, hoverQuotes, below } from "../styles/lib"
 import { destroyQuote } from "./api/client"
 import AppContext from '../context/AppContext'
 
@@ -39,7 +39,10 @@ const QuoteBox = styled.div`
         margin: 0 auto;
         width: 90px;
         cursor: pointer;
-        ${hoverQuotes}
+        ${hoverQuotes};
+        ${below.md`
+            width: min-content;
+        `}
     }
 
     .attribution {
