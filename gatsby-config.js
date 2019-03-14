@@ -27,6 +27,15 @@ module.exports = {
                 icon: `src/images/favicon.png`,
             },
         },
+        {
+            resolve: `gatsby-source-custom-api`,
+            options: {
+                url: {
+                    development: `http://localhost:4741/quotes`,
+                    production: `https://quoteworthy-backend.herokuapp.com/quotes`,
+                },
+            },
+        },
         `gatsby-plugin-offline`,
         `gatsby-plugin-eslint`,
         `gatsby-plugin-styled-components`,
