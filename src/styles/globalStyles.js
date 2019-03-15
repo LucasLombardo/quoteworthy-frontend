@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("https://imagizer.imageshack.com/img923/6425/1MzedQ.png");
+        background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("https://imagizer.imageshack.com/img923/6425/1MzedQ.png");
     }
 `
 

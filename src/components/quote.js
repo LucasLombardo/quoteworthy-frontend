@@ -59,8 +59,8 @@ const QuoteBox = styled.div`
 
         content: "|";
         font-size: 3em;
-        color: ${colors.black};
-        opacity: 0.2;
+        color: ${colors.gray};
+        opacity: 0.6;
     }
 
     &:after {
@@ -73,8 +73,8 @@ const QuoteBox = styled.div`
 
         content: "|";
         font-size: 3em;
-        color: ${colors.black};
-        opacity: 0.2;
+        color: ${colors.gray};
+        opacity: 0.6;
     }
 `
 
