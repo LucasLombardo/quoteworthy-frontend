@@ -18,8 +18,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
+                name: `Quoteworthy`,
+                short_name: `Quoteworthy`,
                 start_url: `/`,
                 background_color: `#D3D3D3`,
                 theme_color: `#D3D3D3`,
