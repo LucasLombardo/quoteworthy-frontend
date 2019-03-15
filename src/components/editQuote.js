@@ -40,7 +40,7 @@ const EditQuote = ({ quote }) => {
                 <input
                     value={attribution}
                     onChange={e => setAttribution(e.target.value)}
-                    placeholder="attribution"
+                    placeholder="author/attribution"
                     type="text"
                     name="attribution"
                     required

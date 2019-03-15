@@ -5,18 +5,22 @@ import Form from "../styles/form"
 import AppContext from '../context/AppContext'
 
 const ChangePw = () => {
+    // create state for controlled inputs
     const [password, setPassword] = useState(``)
     const [newPassword, setNewPassword] = useState(``)
 
+    // get current user to pass token to AJAX api call
     const { user, invokeMessage } = useContext(AppContext)
 
     const onChangePw = (e) => {
         e.preventDefault()
         changePassword(password, newPassword, user.token)
+            // on success, display message and navigate home
             .then(() => {
                 navigate(`/`)
                 invokeMessage(`password successfully changed`)
             })
+            // on failure, display error message and clear forms
             .catch(() => {
                 setPassword(``)
                 setNewPassword(``)
@@ -33,7 +37,7 @@ const ChangePw = () => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     placeholder="password"
-                    type="text"
+                    type="password"
                     name="password"
                     required
                 />
@@ -41,8 +45,8 @@ const ChangePw = () => {
                     value={newPassword}
                     onChange={e => setNewPassword(e.target.value)}
                     placeholder="new password"
-                    type="text"
-                    name="New Password"
+                    type="password"
+                    name="newpassword"
                     required
                 />
                 <input type="submit" value="change pw" />
